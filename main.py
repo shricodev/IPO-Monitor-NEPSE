@@ -1,3 +1,7 @@
+# Author: Shrijal Achärya (r3alix01)
+# Date: 2022/04/22
+# Usage: Read The Description ;)
+
 import sys
 import time
 import requests
@@ -28,13 +32,14 @@ def notifier(shareName, sharePrice, changeHolder):
         embed.set_author(name="Piyush Acharya", url=f"https://github.com/r3alix01", icon_url="https://user-images.githubusercontent.com/76906722/164422105-3acc12ef-4014-406e-8ca1-2bd996974ddc.jpg")
         embed.set_timestamp()
         webhook.add_embed(embed)
+        # Runs the webhook
         webhook.execute()
 
     except ImportError:
         print("Make sure to download all the dependencies from requirements.txt")
 
     except Exception as e:
-        print("Unexpected Error Occured Could Not create a Discord Webhook.")
+        print("Unexpected Error Occured. Could Not create a Discord Webhook.")
 
 
 def main():
@@ -68,6 +73,12 @@ def main():
             # It holds the numeric value of the percentage change without %.
             percentChange = (changeHolder[0].get_text()).split(" ")
             price = priceHolder[0].get_text()
+
+            # If the user doesnot enter a valid sharename the price variable is an empty string.
+            #  Could not find a better yet easy way to check an Invalid share name.
+            if price == "":
+                print("Please enter a valid share name")
+                sys.exit(1)
 
             if float(percentChange[0]) < 0:
                 print(f"{counter}) The price of the IPO -> {shareName} has started to decrease with {changeHolder[0].get_text()}. Current price: {price}")
