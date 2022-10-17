@@ -1,4 +1,4 @@
-# Author: Shrijal Achärya (YuShx01)
+# Author: Shrijal Achärya (OctoPie23)
 # Date: 2022/04/22
 # Usage: Read The Description ;)
 
@@ -29,7 +29,7 @@ def notifier(shareName, sharePrice, changeHolder):
         webhook = DiscordWebhook(url=webHookUrl, username=userName, content=contents)
         # It embeds the data wit TITLE.
         embed = DiscordEmbed(title="**The Data is taken from merolagani.com**", color=242424)
-        embed.set_author(name="Shrijal Acharya", url=f"https://github.com/YuShx01", icon_url="https://user-images.githubusercontent.com/76906722/164422105-3acc12ef-4014-406e-8ca1-2bd996974ddc.jpg")
+        embed.set_author(name="Shrijal Acharya", url=f"https://github.com/OctoPie23", icon_url="https://user-images.githubusercontent.com/76906722/164422105-3acc12ef-4014-406e-8ca1-2bd996974ddc.jpg")
         embed.set_timestamp()
         webhook.add_embed(embed)
         # Runs the webhook
